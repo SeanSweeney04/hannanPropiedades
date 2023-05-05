@@ -239,6 +239,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Propiedades</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" integrity="sha512-eK7k0qLwRrKk4JYJ+X8Z7zQv6J4Zv7CQ6n7rJG3N0kR7J2r3ZdJXCXnCQjX2K7XN6Uw3L2S8Sd0RkDv1lGk3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         .card-container {
             display: flex;
@@ -337,10 +338,117 @@
             outline: none;
             box-shadow: 0 0 4px #cccccc;
           }
+
+
+          /*NAVBAR*/
+          .navbar {
+            background-color: white;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px;
+          }
+
+          a{
+            text-decoration: none;
+            color: black;
+            font-family: Montserrat;
+            font-size: 12px;
+          }
+          
+          .navbar-brand img {
+            display: block;
+            margin-right: 10px;
+            width: 250px;
+            height: 55px;
+          }
+          
+          .navbar-toggler {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            padding: 0;
+          }
+          
+          .navbar-toggler:focus,
+          .navbar-toggler:hover {
+            outline: none;
+          }
+          
+         
+          
+          .navbar-nav {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+          }
+          
+          .nav-link {
+            padding: .5rem 1rem;
+          }
+          
+          .nav-item {
+            margin: 0 0 10px;
+          }
+
+          .barra-roja{
+            width: 100%;
+            height: 50px;
+            background-color: red;
+            color: white;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            font-weight: bold;
+            font-size: 12px;
+            font-family: Montserrat;
+          }
+          
+         
         
     </style>
 </head>
 <body>
+    <div class="barra-roja">
+        <p>931 59 58 80</p>
+        <p>info@hannanpiper.com</p>
+    </div>
+    <nav class="navbar">
+        <a class="navbar-brand" href="https://hannan-piper.com/">
+          <img src="https://i.postimg.cc/DwR6PXHw/logo-hannan-peque-o.png" width="30" height="30" alt="">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="navbar-nav mr-auto">
+            <div class="nav-item active">
+              <a class="nav-link" href="https://hannan-piper.com/quieres-vender-o-alquilar/">¿Quieres vender o alquilar?</a>
+            </div>
+            <div class="nav-item">
+              <a class="nav-link" href="https://hannan-piper.com/sobre-nosotros/">Sobre nosotros</a>
+            </div>
+            <div class="nav-item">
+              <a class="nav-link" href="https://hannan-piper.com/areas-de-servicio/">Áreas de Servicio</a>
+            </div>
+            <div class="nav-item">
+              <a class="nav-link" href="https://hannan-piper.com/propuesta-de-valor/">Propuesta de valor</a>
+            </div>
+            <div class="nav-item">
+              <a class="nav-link" href="https://hannan-piper.com/noticias/">Noticias</a>
+            </div>
+            <div class="nav-item">
+              <a class="nav-link" href="https://hannan-piper.com/propiedad/">Propiedades</a>
+            </div>
+            <div class="nav-item">
+              <a class="nav-link" href="https://hannan-piper.com/unete-al-equipo/">Únete al Equipo</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+
     <div class="search-container">
         <label for="provincia">Provincia:</label>
         <select id="provincia" name="provincia">

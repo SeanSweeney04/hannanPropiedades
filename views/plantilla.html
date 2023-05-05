@@ -1,0 +1,41 @@
+<!-- plantilla.html -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ titulo }}</title>
+	<!-- Agrega la referencia de Bootstrap -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" integrity="sha512-eK7k0qLwRrKk4JYJ+X8Z7zQv6J4Zv7CQ6n7rJG3N0kR7J2r3ZdJXCXnCQjX2K7XN6Uw3L2S8Sd0RkDv1lGk3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+	<!-- Estructura de la barra de navegación -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <a class="navbar-brand" href="#">
+	    <img src="ruta/a/tu/logo.png" width="30" height="30" alt="">
+	  </a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarNav">
+	    <ul class="navbar-nav">
+	      <li class="nav-item active">
+	        <a class="nav-link" href="#">Inicio</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="#">Acerca de</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="#">Contacto</a>
+	      </li>
+	    </ul>
+	  </div>
+	</nav>
+
+	<!-- Contenido principal de la vista -->
+	{{ contenido }}
+
+	<!-- Agrega los scripts de Bootstrap al final del archivo -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js" integrity="sha512-Kp5+L6V4wXkxvWLOwHJ/8tGKvqj9w1cRm6D7dV0qX5qY/7+2g8Q+yhKjYR9qkI8Bkz54Zd9W/3A7WvHG/+C8w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
