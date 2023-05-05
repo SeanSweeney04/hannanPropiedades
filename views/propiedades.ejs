@@ -241,12 +241,19 @@
     <title>Propiedades</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" integrity="sha512-eK7k0qLwRrKk4JYJ+X8Z7zQv6J4Zv7CQ6n7rJG3N0kR7J2r3ZdJXCXnCQjX2K7XN6Uw3L2S8Sd0RkDv1lGk3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
+
+        body{
+            margin: 0px;
+            padding: 0px;
+        }
+
         .card-container {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
-            gap: 16px;
+            gap: 12px;
+            padding: 18px;
         }
 
         .card {
@@ -404,11 +411,61 @@
             justify-content: space-around;
             align-items: center;
             font-weight: bold;
-            font-size: 12px;
-            font-family: Montserrat;
+            font-size: 15px;
+            font-family: Montserrat; 
+            padding: -5px;
+            margin: 0;
+            margin-top: 0;
           }
           
-         
+         /* Estilos para dispositivos más pequeños */
+@media (max-width: 600px) {
+    .barra-roja {
+      font-size: 0.8em;
+      text-align: center;
+    }
+    
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .navbar-nav {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column; /* Agregamos esta propiedad para que los elementos se ubiquen verticalmente */
+        align-items: center; /* Agregamos esta propiedad para centrar los elementos verticalmente */
+      }
+      
+      .nav-link {
+        padding: 5px;
+      }
+
+
+      /*barra de busqueda*/
+      .search-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+  
+      }
+      
+      .search-container > * {
+        margin-bottom: 10px;
+      }
+      
+      #minPrice, #maxPrice {
+        width: 80%;
+        margin-left: 10px;
+        margin-top: 10px;
+      }
+      #provincia{
+        width: 90%;
+        margin-left: 15px;
+        margin-top: 10px;
+      }
+
+  }
         
     </style>
 </head>
@@ -421,7 +478,7 @@
         <a class="navbar-brand" href="https://hannan-piper.com/">
           <img src="https://i.postimg.cc/DwR6PXHw/logo-hannan-peque-o.png" width="30" height="30" alt="">
         </a>
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="navbar-collapse" id="navbarNav">
           <div class="navbar-nav mr-auto">
             <div class="nav-item active">
               <a class="nav-link" href="https://hannan-piper.com/quieres-vender-o-alquilar/">¿Quieres vender o alquilar?</a>
