@@ -1,0 +1,477 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propiedades</title>
+    <style>
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border: 1px solid #dddddd;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 16px;
+            width: 300px;
+        }
+
+        .card img {
+            object-fit: cover;
+            height: 200px;
+            width: 100%;
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin: 8px 0;
+        }
+
+        .card-info {
+            margin-bottom: 8px;
+        }
+
+        .card-info2 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        #search {
+            border: 1px solid #dddddd;
+            border-radius: 4px;
+            font-size: 14px;
+            padding: 8px 16px;
+            outline: none;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        #search:focus {
+            border-color: #6dba88;
+            box-shadow: 0 0 0 1px #6dba88;
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Buscar por precio" />
+    </div>
+    <div id="card-container" class="card-container">
+        <% propiedades.forEach(propiedad => { %>
+          <a href="/propiedad/<%= propiedad.identifier %>" style="text-decoration: none; color: inherit;">
+            <div class="card">
+                <img src="<%= propiedad.pictures[0] %>" alt="<%= propiedad.title %>">
+                <div class="card-title" style="font-family: Montserrat; text-transform: capitalize;"><%= propiedad.title %></div>
+                <div class="card-info" style="font-family: Montserrat; ">P: <%= propiedad.province %></div>
+                <div class="card-info2" style="font-family: Montserrat; ">Baños: <div> <%= propiedad.bathrooms %>  <img src="https://i.postimg.cc/4xMbG419/48045.png" style="width: 22px; height: 22px; color: black; margin-top: 10px; margin-bottom: -8px;" />  </div></div>
+                <div class="card-info2" style="font-family: Montserrat; " >Habitaciones: <div style="color: black;"> <%= propiedad.bedrooms %> <img src="https://i.postimg.cc/cJY80VML/hab.png" style="width: 30px; height: 30px; color: black; margin-top: 10px; margin-bottom: -8px;" /> </div></div>
+                <div class="card-info2" style="font-family: Montserrat; ">Precio: <img src="https://i.postimg.cc/zDT4tvr3/21125.png" style="width: 15px; height: 15px; color: black; margin-top: -10px; margin-bottom: -8px; margin-left: 160px" /> <div class="price"> <%= propiedad.selling_cost %>  </div></div>
+            </div>
+        </a>
+        <% }); %>
+    </div>
+    <script>
+        const searchInput = document.getElementById('search');
+        const cardContainer = document.getElementById('card-container');
+        const cards = Array.from(cardContainer.children);
+
+        searchInput.addEventListener('input', (event) => {
+            const searchValue = parseFloat(event.target.value);
+            if (isNaN(searchValue)) {
+                cards.forEach((card) => {
+                    card.style.display = 'block';
+                });
+            } else {
+                cards.forEach((card) => {
+                    const priceElement = card.querySelector('.price');
+                    const price = parseFloat(priceElement.textContent.replace(/[^0-9.]/g, ''));
+                    if (price <= searchValue) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html> -->
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propiedades</title>
+    <style>
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border: 1px solid #dddddd;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 16px;
+            width: 300px;
+        }
+
+        .card img {
+            object-fit: cover;
+            height: 200px;
+            width: 100%;
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin: 8px 0;
+        }
+
+        .card-info {
+            margin-bottom: 8px;
+        }
+
+        .card-info2 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 16px;
+            background-color: rgb(228, 228, 228);
+            padding: 35px;
+  
+  
+        }
+
+        #search, #searchProvince {
+            border: 1px solid #dddddd;
+            border-radius: 4px;
+            font-size: 14px;
+            padding: 8px 16px;
+            margin-right: 8px;
+            width: 500px;
+           
+        }
+        .hidden {
+            display: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Buscar por precio">
+        <input type="text" id="searchProvince" placeholder="Buscar por provincia">
+    </div>
+    <div id="card-container" class="card-container">
+        <% propiedades.forEach(propiedad => { %>
+          <a href="/propiedad/<%= propiedad.identifier %>" style="text-decoration: none; color: inherit;">
+            <div class="card">
+                <img src="<%= propiedad.pictures[0] %>" alt="<%= propiedad.title %>">
+                <div class="card-title" style="font-family: Montserrat; text-transform: capitalize;"><%= propiedad.title %></div>
+                <div class="card-info card-province" style="font-family: Montserrat; ">Provincia: <%= propiedad.province %></div>
+                <div class="card-info2" style="font-family: Montserrat; ">Baños: <div> <%= propiedad.bathrooms %>  <img src="https://i.postimg.cc/4xMbG419/48045.png" style="width: 22px; height: 22px; color: black; margin-top: 10px; margin-bottom: -8px;" />  </div></div>
+                <div class="card-info2" style="font-family: Montserrat; " >Habitaciones: <div style="color: black;"> <%= propiedad.bedrooms %> <img src="https://i.postimg.cc/cJY80VML/hab.png" style="width: 30px; height: 30px; color: black; margin-top: 10px; margin-bottom: -8px;" /> </div></div>
+                <div class="card-info2" style="font-family: Montserrat; ">Precio: <img src="https://i.postimg.cc/zDT4tvr3/21125.png" style="width: 15px; height: 15px; color: black; margin-top: -10px; margin-bottom: -8px; margin-left: 160px" /> <span class="card-price"> <%= propiedad.selling_cost %> </span></div>
+            </div>
+        </a>
+        <% }); %>
+    </div>
+    <script>
+        const searchInput = document.getElementById('search');
+        const searchProvinceInput = document.getElementById('searchProvince');
+        const cards = document.querySelectorAll('.card');
+
+        const filterCards = () => {
+        const searchValue = parseFloat(searchInput.value);
+        const searchProvinceValue = searchProvinceInput.value.toLowerCase();
+
+        cards.forEach((card) => {
+            const priceElement = card.querySelector('.card-price');
+            const price = parseFloat(priceElement.textContent.replace(/[^0-9.]/g, ''));
+            const provinceElement = card.querySelector('.card-province');
+            const province = provinceElement.textContent.slice(10).toLowerCase();
+
+            if ((isNaN(searchValue) || price <= searchValue) && province.includes(searchProvinceValue)) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+    });
+};
+
+
+        searchInput.addEventListener('input', filterCards);
+        searchProvinceInput.addEventListener('input', filterCards);
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propiedades</title>
+    <style>
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border: 1px solid #dddddd;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 16px;
+            width: 300px;
+        }
+
+        .card img {
+            object-fit: cover;
+            height: 200px;
+            width: 100%;
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin: 8px 0;
+        }
+
+        .card-info {
+            margin-bottom: 8px;
+        }
+
+        .card-info2 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 16px;
+            background-color: rgb(228, 228, 228);
+            padding: 35px;
+        }
+
+        #search, #searchProvince {
+            border: 1px solid #dddddd;
+            border-radius: 4px;
+            font-size: 14px;
+            padding: 8px 16px;
+            margin-right: 8px;
+            width: 500px;     
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .card-price {
+            display: inline-block;
+            text-align: right;
+            width: 165px; /* Ajusta el ancho según tus necesidades */
+          }
+
+          .search-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 16px;
+            background-color: #f2f2f2;
+            padding: 20px;
+            font-family: 'Montserrat', sans-serif;
+          }
+          
+          label {
+            margin-right: 10px;
+          }
+          
+          select,
+          input[type="number"] {
+            border: none;
+            background-color: #ffffff;
+            border-radius: 4px;
+            font-size: 14px;
+            padding: 8px 16px;
+            margin-right: 35px;
+            width: 150px;
+            margin-top: -8px;
+          }
+          
+          select:focus,
+          input[type="number"]:focus {
+            outline: none;
+            box-shadow: 0 0 4px #cccccc;
+          }
+        
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <label for="provincia">Provincia:</label>
+        <select id="provincia" name="provincia">
+            <option value="">Selecciona una provincia</option>
+            <option value="Álava">Álava</option>
+            <option value="Albacete">Albacete</option>
+            <option value="Alicante">Alicante</option>
+            <option value="Almería">Almería</option>
+            <option value="Asturias">Asturias</option>
+            <option value="Ávila">Ávila</option>
+            <option value="Badajoz">Badajoz</option>
+            <option value="Barcelona">Barcelona</option>
+            <option value="Burgos">Burgos</option>
+            <option value="Cáceres">Cáceres</option>
+            <option value="Cádiz">Cádiz</option>
+            <option value="Cantabria">Cantabria</option>
+            <option value="Castellón">Castellón</option>
+            <option value="Ciudad Real">Ciudad Real</option>
+            <option value="Córdoba">Córdoba</option>
+            <option value="Cuenca">Cuenca</option>
+            <option value="Girona">Girona</option>
+            <option value="Granada">Granada</option>
+            <option value="Guadalajara">Guadalajara</option>
+            <option value="Gipuzkoa">Gipuzkoa</option>
+            <option value="Huelva">Huelva</option>
+            <option value="Huesca">Huesca</option>
+            <option value="Illes Balears">Illes Balears</option>
+            <option value="Jaén">Jaén</option>
+            <option value="La Rioja">La Rioja</option>
+            <option value="Las Palmas">Las Palmas</option>
+            <option value="León">León</option>
+            <option value="Lleida">Lleida</option>
+            <option value="Lugo">Lugo</option>
+            <option value="Madrid">Madrid</option>
+            <option value="Málaga">Málaga</option>
+            <option value="Murcia">Murcia</option>
+            <option value="Navarra">Navarra</option>
+            <option value="Ourense">Ourense</option>
+            <option value="Palencia">Palencia</option>
+            <option value="Pontevedra">Pontevedra</option>
+            <option value="Salamanca">Salamanca</option>
+            <option value="Santa Cruz de Tenerife">Santa Cruz de Tenerife</option>
+            <option value="Segovia">Segovia</option>
+            <option value="Sevilla">Sevilla</option>
+            <option value="Soria">Soria</option>
+            <option value="Tarragona">Tarragona</option>
+            <option value="Teruel">Teruel</option>
+            <option value="Toledo">Toledo</option>
+            <option value="Valencia">Valencia</option>
+            <option value="Valladolid">Valladolid</option>
+            <option value="Bizkaia">Bizkaia</option>
+            <option value="Zamora">Zamora</option>
+            <option value="Zaragoza">Zaragoza</option>
+        </select>
+        
+        <label for="minPrice">Precio mínimo:</label>
+    <input type="number" id="minPrice" placeholder="Mínimo" step="0.01">
+    <label for="maxPrice">Precio máximo:</label>
+    <input type="number" id="maxPrice" placeholder="Máximo" step="0.01">
+    </div>
+    <div id="card-container" class="card-container">
+        <% propiedades.forEach(propiedad => { %>
+          <a href="/propiedad/<%= propiedad.identifier %>" style="text-decoration: none; color: inherit;">
+            <div class="card" data-provincia="<%= propiedad.province %>">
+                <img src="<%= propiedad.pictures[0] %>" alt="<%= propiedad.title %>">
+                <div class="card-title" style="font-family: Montserrat; text-transform: capitalize;"><%= propiedad.title %></div>
+                <div class="card-info card-province" style="font-family: Montserrat; ">Provincia: <%= propiedad.province %></div>
+                <div class="card-info2" style="font-family: Montserrat; ">Baños: <div> <%= propiedad.bathrooms %>  <img src="https://i.postimg.cc/4xMbG419/48045.png" style="width: 22px; height: 22px; color: black; margin-top: 10px; margin-bottom: -8px;" />  </div></div>
+                <div class="card-info2" style="font-family: Montserrat; " >Habitaciones: <div style="color: black;"> <%= propiedad.bedrooms %> <img src="https://i.postimg.cc/cJY80VML/hab.png" style="width: 30px; height: 30px; color: black; margin-top: 10px; margin-bottom: -8px;" /> </div></div>
+                <div class="card-info2" style="font-family: Montserrat; display: inline-block; margin-top: 20px;  ">
+                    Precio de Venta:
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                      <img src="https://i.postimg.cc/zDT4tvr3/21125.png" style="width: 12px; height: 12px; color: black;">
+                      <span class="card-price" style="display: inline-block; text-align: right; width: 80px;"><%= propiedad.selling_cost.toLocaleString('es-ES', { style: 'decimal' }) %></span>
+                    </div>
+                  </div>
+                  
+                  <div class="card-info2" style="font-family: Montserrat; display: inline-block; margin-left: 20px; ">
+                    Precio de Alquiler:
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                      <img src="https://i.postimg.cc/zDT4tvr3/21125.png" style="width: 12px; height: 12px; color: black;">
+                      <span class="card-price" style="display: inline-block; text-align: right; width: 80px;"><%= propiedad.transfer_cost.toLocaleString('es-ES', { style: 'decimal' }) %></span>
+                    </div>
+                  </div>
+                <!-- <div class="card-info2" style="font-family: Montserrat; display: inline-block;  ">Precio de Venta:  <span class="card-price"> <img  src="https://i.postimg.cc/zDT4tvr3/21125.png" style="width: 15px; height: 15px; color: black; margin-top: 10px; margin-bottom: -3px; margin-left: -50px; margin-left: -40px;" />  <%= propiedad.selling_cost %> </span></div> 
+                <div class="card-info2" style="font-family: Montserrat; display: inline-block;  ">Precio de Alquiler:  <span class="card-price"> <img  src="https://i.postimg.cc/zDT4tvr3/21125.png" style="width: 15px; height: 15px; color: black; margin-top: 10px; margin-bottom: -3px; margin-left: -50px; margin-left: -40px;" />  <%= propiedad.transfer_cost %> </span></div> -->
+            </div>
+        </a>
+        <% }); %>
+    </div>
+    <script>
+        const provinciaInput = document.getElementById('provincia');
+        const minPriceInput = document.getElementById('minPrice');
+        const maxPriceInput = document.getElementById('maxPrice');
+        const cards = document.querySelectorAll('.card');
+
+        const filterCards = () => {
+            const provinciaSeleccionada = provinciaInput.value;
+            const minPrice = parseFloat(minPriceInput.value);
+            const maxPrice = parseFloat(maxPriceInput.value);
+            
+        
+            cards.forEach((card) => {
+                const priceElement = card.querySelector('.card-price');
+                const price = parseFloat(priceElement.textContent.replace(/[^0-9.]/g, ''));
+                const province = card.getAttribute('data-provincia').toLowerCase();
+        
+                if ((isNaN(minPrice) || price >= minPrice) && (isNaN(maxPrice) || price <= maxPrice) && (provinciaSeleccionada === '' || province === provinciaSeleccionada.toLowerCase())) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        };
+
+        const minPrice = parseFloat(minPriceInput.value);
+        const maxPrice = parseFloat(maxPriceInput.value);
+
+        // Formatea los montos con decimales y moneda
+        const formattedMinPrice = minPrice.toLocaleString('es-ES', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        const formattedMaxPrice = maxPrice.toLocaleString('es-ES', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+        // Actualiza los valores de los inputs con los montos formateados
+        minPriceInput.value = formattedMinPrice;
+        maxPriceInput.value = formattedMaxPrice;
+        
+
+        provinciaInput.addEventListener('change', filterCards);
+        minPriceInput.addEventListener('input', filterCards);
+        maxPriceInput.addEventListener('input', filterCards);
+    </script>
+</body>
+</html>
+

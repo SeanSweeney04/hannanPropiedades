@@ -1,0 +1,31 @@
+# Dependencias instaladas con npm
+/node_modules
+
+# Archivos y carpetas generados por el entorno de desarrollo
+/.pnp
+.pnp.js
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.env
+
+# Dependencias instaladas con yarn
+/.yarn/*
+!.yarn/cache
+!.yarn/plugins
+!.yarn/build-state.yml
+!.yarn/install-state.gz
+yarn.lock
+
+# Carpeta de compilación
+/build
+
+# Dependencias instaladas con pnpm
+/.pnpm-store
+.pnpm-workspace.yaml
+pnpm-debug.log*

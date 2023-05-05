@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= detalle[0].title %></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+    h1 {
+      margin-top: 50px;
+      font-size: 2.2rem;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 20px;
+    }
+    .carousel {
+      border: 1px solid #ccc;
+      margin-bottom: 30px;
+    }
+    .carousel-image {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: cover;
+    }
+    .carousel-control-prev,
+    .carousel-control-next {
+      font-size: 2rem;
+      background-color: rgba(255, 7, 7, 0.5);
+      color: #000;
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      margin-top: -25px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background-color: transparent;
+    }
+    .row {
+      margin-top: 80px;
+    }
+    .col-md-8 p,
+    .col-md-4 p {
+      margin-bottom: 10px;
+    }
+    .col-md-4 p strong {
+      display: inline-block;
+      width: 150px;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center"><%= detalle[0].title %></h1>
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <% detalle[0].pictures.forEach(function(picture, index) { %>
+        <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
+          <img src="<%= picture %>" class="d-block carousel-image">
+        </div>
+        <% }); %>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <h2>Descripción:</h2>
+        <p><%= detalle[0].description %></p>
+      </div>
+      <div class="col-md-4">
+        <h2>Detalles:</h2>
+        <p><strong>ID:</strong> <%= detalle[0].identifier %></p>
+        <p><strong>Baños:</strong> <%= detalle[0].bathrooms %></p>
+        <p><strong>Habitaciones:</strong> <%= detalle[0].bedrooms %></p>
+        <p><strong>Precio:</strong> € <%= detalle[0].selling_cost.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) %></p>
+
+        <p><strong>Ciudad:</strong> <%= detalle[0].town %></p>
+        <p><strong>Área construida:</strong> <%= detalle[0].area_plot %> m²</p>
+        <p><strong>Área del terreno:</strong> <%= detalle[0].area_util %> m²</p>
+        <p><strong>Ubicación:</strong> <%= detalle[0].street %></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <h2>Description:</h2>
+        <p><%= detalle[0].description_en %></p>
+      </div>
+      <div class="col-md-4">
+        <h2>Details:</h2>
+        <p><strong>ID:</strong> <%= detalle[0].identifier %></p>
+        <p><strong>Bathrooms:</strong> <%= detalle[0].bathrooms %></p>
+        <p><strong>Bedrooms:</strong> <%= detalle[0].bedrooms %></p>
+        <p><strong>Price:</strong> € <%= detalle[0].selling_cost.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) %></p>
+
+        <p><strong>City:</strong> <%= detalle[0].town %></p>
+        <p><strong>Plot Area:</strong> <%= detalle[0].area_plot %> m²</p>
+        <p><strong>Util Area:</strong> <%= detalle[0].area_util %> m²</p>
+        <p><strong>Address:</strong> <%= detalle[0].street %></p>
+      </div>
+      
+    </div>
+    
+
+
+  </div>
+</body>
+</html>
