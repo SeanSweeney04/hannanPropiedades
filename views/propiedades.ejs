@@ -417,6 +417,129 @@
             margin: 0;
             margin-top: 0;
           }
+
+          /*sobre nosotros*/
+          .dropdown-icon {
+            display: inline-block;
+            width: 5px;
+            height: 5px;
+            margin-left: 5px;
+            border: solid black;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            transition: transform 0.2s ease-in-out;
+          }
+          
+          .dropdown-icon.active {
+            transform: rotate(-135deg);
+          }
+          .dropdown-menu {
+            display: none;
+            position: absolute;
+            z-index: 1;
+          }
+          
+          .dropdown.active .dropdown-menu {
+            display: block;
+          }
+          
+          .dropdown-menu a {
+            display: block;
+            padding: 10px;
+            background-color: #fff;
+            color: #000;
+            text-decoration: none;
+            border-bottom: 1px solid #ccc;
+          }
+          
+          .dropdown-menu a:hover {
+            background-color: #f0f0f0;
+          }
+
+
+
+
+
+          .service-dropdown-icon{
+            display: inline-block;
+            width: 5px;
+            height: 5px;
+            margin-left: 5px;
+            border: solid black;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            transition: transform 0.2s ease-in-out;
+
+          }
+          .service-dropdown-icon.active {
+            transform: rotate(-135deg);
+          }
+
+          .service-dropdown-menu {
+            display: none;
+            position: absolute;
+            z-index: 1;
+          }
+          
+          .service-dropdown.active .service-dropdown-menu {
+            display: block;
+          }
+          
+          .service-dropdown-menu a {
+            display: block;
+            padding: 10px;
+            background-color: #fff;
+            color: #000;
+            text-decoration: none;
+            border-bottom: 1px solid #ccc;
+          }
+          
+          .service-dropdown-menu a:hover {
+            background-color: #f0f0f0;
+          }
+
+
+
+
+
+          .service-dropdown-valor-icon{
+            display: inline-block;
+            width: 5px;
+            height: 5px;
+            margin-left: 5px;
+            border: solid black;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            transition: transform 0.2s ease-in-out;
+
+          }
+          .service-dropdown-valor-icon.active {
+            transform: rotate(-135deg);
+          }
+
+          .service-dropdown-valor-menu {
+            display: none;
+            position: absolute;
+            z-index: 1;
+          }
+          
+          .service-dropdown-valor.active .service-dropdown-valor-menu {
+            display: block;
+          }
+          
+          .service-dropdown-valor-menu a {
+            display: block;
+            padding: 10px;
+            background-color: #fff;
+            color: #000;
+            text-decoration: none;
+            border-bottom: 1px solid #ccc;
+          }
+          
+          .service-dropdown-valor-menu a:hover {
+            background-color: #f0f0f0;
+          }
+
           
          /* Estilos para dispositivos más pequeños */
 @media (max-width: 600px) {
@@ -483,14 +606,58 @@
             <div class="nav-item active">
               <a class="nav-link" href="https://hannan-piper.com/quieres-vender-o-alquilar/">¿Quieres vender o alquilar?</a>
             </div>
-            <div class="nav-item">
-              <a class="nav-link" href="https://hannan-piper.com/sobre-nosotros/">Sobre nosotros</a>
+            <div class="dropdown">
+              <a class="nav-link dropdown-toggle" href="" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                Sobre nosotros <span class="dropdown-icon"></span>
+              </a>
+            
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="https://hannan-piper.com/sobre-nosotros/">Sobre Nosotros</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/oficinas/">Oficinas</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/hannan-piper-university/">Hannan-piper University</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/obra-social/">Obra social</a>
+              </div>
             </div>
-            <div class="nav-item">
-              <a class="nav-link" href="https://hannan-piper.com/areas-de-servicio/">Áreas de Servicio</a>
+            <div class="service-dropdown">
+              <a class="nav-link dropdown-toggle" href="" role="button" id="serviceDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                Áreas de servicio <span class="service-dropdown-icon"></span>
+              </a>
+            
+              <div class="service-dropdown-menu" aria-labelledby="serviceDropdownMenuLink">
+                <a class="dropdown-item" href="https://hannan-piper.com/areas-de-servicio/">Áreas de Servicio</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/venta-residencial/">Venta Résidencial</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/venta-comercial/">Venta Comercial</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/propiedades-de-lujo/">Propiedades de Lujo</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/personal-shopper-inmobiliario/">Personal Shopper Inmobiliario</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/alquiler/">Alquiler</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/obra-nueva/">Obra Nueva</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/inversiones-inmobiliarias/">Inversiones Inmobiliarias</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/business-brokerage/">Business Brokerage</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/seguros/">Seguros</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/administracion-de-propiedades/">Administración de Propiedades</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/reformas/">Reformas</a>
+              </div>
             </div>
-            <div class="nav-item">
-              <a class="nav-link" href="https://hannan-piper.com/propuesta-de-valor/">Propuesta de valor</a>
+            <div class="service-dropdown-valor">
+              <a class="nav-link dropdown-toggle" href="" role="button" id="serviceDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                Propuesta de Valor <span class="service-dropdown-valor-icon"></span>
+              </a>
+            
+              <div class="service-dropdown-valor-menu" aria-labelledby="serviceDropdownMenuLink">
+                <a class="dropdown-item" href="https://hannan-piper.com/propuesta-de-valor/">Propuesta de Valor</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/portales-inmobiliarios/">150 Portales Inmobiliarios</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/comunicacion-efectiva/">Comunicación Efectiva</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/alarmas/">Alarmas</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/big-data-2/">Big Data</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/home-staging-14/">Home Staging</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/hipotecas/">Hipotecas</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/neuromarketing/">Neuromarketing</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/virtual-staging/">Virtual Staging</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/vaciado-de-pisos/">Vaciado de Pisos</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/visitas-virtuales-360/">Visitas Virtuales 360°</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/renders-360/">Renders 360</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/servicios-de-postventa/">Servicios de Postventa</a>
+              </div>
             </div>
             <div class="nav-item">
               <a class="nav-link" href="https://hannan-piper.com/noticias/">Noticias</a>
@@ -597,6 +764,56 @@
         <% }); %>
     </div>
     <script>
+ 
+      var dropdown = document.querySelector('.dropdown');
+      var dropdownIcon = document.querySelector('.dropdown-icon');
+      var dropdownMenu = document.querySelector('.dropdown-menu');
+      
+      dropdown.addEventListener('click', function() {
+        dropdown.classList.toggle('active');
+      });
+      
+      // Cierra el menú desplegable si se hace clic fuera de él
+      window.addEventListener('click', function(event) {
+        if (!dropdown.contains(event.target)) {
+          dropdown.classList.remove('active');
+        }
+      });
+
+      var serviceDropdown = document.querySelector('.service-dropdown');
+      var serviceDropdownIcon = document.querySelector('.service-dropdown-icon');
+      var serviceDropdownMenu = document.querySelector('.service-dropdown-menu');
+
+      serviceDropdown.addEventListener('click', function() {
+        serviceDropdown.classList.toggle('active');
+      });
+
+      window.addEventListener('click', function(event) {
+        if (!serviceDropdown.contains(event.target)) {
+          serviceDropdown.classList.remove('active');
+        }
+      });
+
+
+      var serviceDropdownValor = document.querySelector('.service-dropdown-valor');
+      var serviceDropdownIconValor = document.querySelector('.service-dropdown-valor-icon');
+      var serviceDropdownMenuValor = document.querySelector('.service-dropdown-valor-menu');
+
+      serviceDropdownValor.addEventListener('click', function() {
+        serviceDropdownValor.classList.toggle('active');
+      });
+
+      window.addEventListener('click', function(event) {
+        if (!serviceDropdownValor.contains(event.target)) {
+          serviceDropdownValor.classList.remove('active');
+        }
+      });
+
+      
+
+
+
+
         const provinciaInput = document.getElementById('provincia');
         const minPriceInput = document.getElementById('minPrice');
         const maxPriceInput = document.getElementById('maxPrice');
