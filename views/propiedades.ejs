@@ -589,6 +589,98 @@
       }
 
   }
+
+
+
+  /*footer*/
+  footer {
+    background-color: #4B4F55;
+    color: white;
+    font-family: Montserrat;
+    padding: 35px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: start;
+  }
+  
+  footer > div {
+    margin-bottom: 25px;
+    flex-basis: calc(33.33% - 10px);
+    text-align: start;
+  }
+  
+  footer img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  footer p {
+    margin: 0;
+  }
+  
+  .logo > div{
+    gap: 65px;
+  }
+  
+  .logo > p{
+    margin-bottom: 20px;
+  }
+  .suscribete p {
+    margin: 0;
+    text-align: justify;
+    margin-bottom: 10px;
+  }
+  .suscribete div p{
+    margin-top: 10px;
+  }
+
+  .barra-blanca{
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    font-family: Montserrat;
+    padding: 10px;
+    
+
+    
+  }
+  .barra-blanca > p {
+    font-size: 14px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    footer {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 20px; /* adjust as needed */
+    }
+  
+    footer > div {
+      flex-basis: auto;
+      margin-bottom: 40px;
+    }
+  
+    .detalles {
+      order: 2;
+    }
+  
+    .suscribete {
+      order: 3;
+    }
+  
+    .suscribete input[type="checkbox"] {
+      margin-right: 10px;
+    }
+  
+    .suscribete p {
+      margin: 0;
+      text-align: justify;
+      margin-bottom: 10px;
+    }
+  }
         
     </style>
 </head>
@@ -763,8 +855,65 @@
         </a>
         <% }); %>
     </div>
+
+    <footer style="background-color: #4B4F55; display:flex; flex-direction: row; justify-content: space-around; align-items: center; color: white; font-family: Montserrat; padding: 25px;">
+      <div class="logo">
+        <img src="https://i.postimg.cc/65xbzqQD/logo-blanco-png.png" alt="" width="300px" height="60px">
+        <div>
+          <img src="https://i.postimg.cc/ZntHfsJr/Facebook.png" alt="">
+          <img src="https://i.postimg.cc/135HYq1Y/youtube.png" alt="">
+          <img src="https://i.postimg.cc/XvtkJ1GT/linkedin.png" alt="">
+          <img  src="https://i.postimg.cc/66rfW09m/instagram.png" alt="">
+        </div>
+        <p>Politica de Cookies</p>
+        <p>Política de privacidad</p>
+        <p>Avisos legales</p>
+        <p>Política de privacidad Redes sociales</p>
+      </div>
+      <div class="detalles" style="margin-top: -80px;">
+        <h2>Detalles de Contacto</h2>
+        <div style="display:flex; flex-direction:row; justify-content:start; align-items: center; ">
+          <img src="https://i.postimg.cc/nrGWqfqs/MAIL.png" alt="">
+          <p style="margin-left: 10px">info@hannanpiper.com</p>
+        </div>
+        <div style="display:flex; flex-direction:row; justify-content:space-around; align-items: center;">
+          <img src="https://i.postimg.cc/c4TjHZs2/DIRECCION.png" alt="">
+          <p>Av. Diagonal, 571 – 2a Planta Barcelona (Barcelona)</p>
+        </div>
+        <div style="display:flex; flex-direction:row; justify-content:start; align-items: center;">
+          <img src="https://i.postimg.cc/nrGWqfqs/MAIL.png" alt="">
+          <p style="margin-left: 10px">931 59 58 80</p>
+        </div>
+      </div>
+      <div class="suscribete" style="display: flex; flex-direction: column; margin-top: 25px;">
+        <h3 style="font-size: 14px; ">Suscríbase aquí a nuestro newsletter y será el primero en recibir nuestras noticias.</h3>
+        <input style="border-radius: 5px; border: none; height: 16px; padding: 10px" placeholder="Correo Electrònico" type="text">
+        <button style="background-color: red; color: white; border: none; border-radius: 5px; margin-top: 15px; height: 30px">Enviar</button>
+        <p style="font-size: 12px; font-family: Montserrat; margin-top: 40px;">
+          La empresa Hannan-Piper Real Estate será responsable de la 
+          información provista con la finalidad de gestionar la suscripción 
+          a la newsletter, para realizar envíos correspondientes. Usted 
+          tiene el derecho de acceder, rectificar y suprimir los datos. 
+          Puede consultar la información adicional y detallada sobre 
+          Protección de Datos en nuestra página web, apartado Política 
+          de Privacidad.
+        </p>
+        <div style="display: flex; flex-direction: row;">
+          <input type="checkbox">
+          <p style="font-size: 10px; font-family: Montserrat;">He leído y acepto la información básica de protección de datos.</p>
+        </div>
+        
+      </div>
+    
+
+    </footer>
+    <div class="barra-blanca">
+      <p>© Hannan-Piper Real Estate 2022</p>
+      <img src="https://i.postimg.cc/mkm1BvBH/api.png" alt="">
+    </div>
+
     <script>
- 
+      /*menu desplegable 1 */
       var dropdown = document.querySelector('.dropdown');
       var dropdownIcon = document.querySelector('.dropdown-icon');
       var dropdownMenu = document.querySelector('.dropdown-menu');
@@ -780,6 +929,7 @@
         }
       });
 
+      /*menu desplegable 2 */
       var serviceDropdown = document.querySelector('.service-dropdown');
       var serviceDropdownIcon = document.querySelector('.service-dropdown-icon');
       var serviceDropdownMenu = document.querySelector('.service-dropdown-menu');
@@ -794,7 +944,7 @@
         }
       });
 
-
+      /*menu desplegable 3 */
       var serviceDropdownValor = document.querySelector('.service-dropdown-valor');
       var serviceDropdownIconValor = document.querySelector('.service-dropdown-valor-icon');
       var serviceDropdownMenuValor = document.querySelector('.service-dropdown-valor-menu');
