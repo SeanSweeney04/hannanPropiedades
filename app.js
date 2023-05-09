@@ -98,6 +98,10 @@ app.get('/propiedad/:prop_id', (req, res) => {
   });
 });
 
+app.get('/home', (req, res) => {
+  res.render('home');
+});
+
 app.listen(port, () => {
   console.log('La aplicación está funcionando en el puerto '+ port);
 });

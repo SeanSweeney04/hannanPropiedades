@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    body{
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 18px;
+    }
+
+    .card {
+        background-color: #ffffff;
+        border: 1px solid #dddddd;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 16px;
+        width: 300px;
+    }
+
+    .card img {
+        object-fit: cover;
+        height: 200px;
+        width: 100%;
+    }
+
+    .card-title {
+        font-size: 14px;
+        font-weight: bold;
+        margin: 8px 0;
+    }
+
+    .card-info {
+        margin-bottom: 8px;
+    }
+
+    .card-info2 {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .search-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 16px;
+        background-color: rgb(228, 228, 228);
+        padding: 35px;
+    }
+
+    #search, #searchProvince {
+        border: 1px solid #dddddd;
+        border-radius: 4px;
+        font-size: 14px;
+        padding: 8px 16px;
+        margin-right: 8px;
+        width: 500px;     
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .card-price {
+        display: inline-block;
+        text-align: right;
+        width: 165px; /* Ajusta el ancho según tus necesidades */
+      }
+
+      .search-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 16px;
+        background-color: #f2f2f2;
+        padding: 20px;
+        font-family: 'Montserrat', sans-serif;
+      }
+      
+      label {
+        margin-right: 10px;
+      }
+      
+      select,
+      input[type="number"] {
+        border: none;
+        background-color: #ffffff;
+        border-radius: 4px;
+        font-size: 14px;
+        padding: 8px 16px;
+        margin-right: 35px;
+        width: 150px;
+        margin-top: -8px;
+      }
+      
+      select:focus,
+      input[type="number"]:focus {
+        outline: none;
+        box-shadow: 0 0 4px #cccccc;
+      }
+
+
+      /*NAVBAR*/
+      .navbar {
+        background-color: white;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        padding: 10px;
+      }
+
+      a{
+        text-decoration: none;
+        color: black;
+        font-family: Montserrat;
+        font-size: 12px;
+      }
+      
+      .navbar-brand img {
+        display: block;
+        margin-right: 10px;
+        width: 250px;
+        height: 55px;
+      }
+      
+      .navbar-toggler {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: 1.5rem;
+        padding: 0;
+      }
+      
+      .navbar-toggler:focus,
+      .navbar-toggler:hover {
+        outline: none;
+      }
+      
+     
+      
+      .navbar-nav {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      
+      .nav-link {
+        padding: .5rem 1rem;
+      }
+      
+      .nav-item {
+        margin: 0 0 10px;
+      }
+
+      .barra-roja{
+        width: 100%;
+        height: 50px;
+        background-color: red;
+        color: white;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        font-weight: bold;
+        font-size: 15px;
+        font-family: Montserrat; 
+        padding: -5px;
+        margin: 0;
+        margin-top: 0;
+      }
+
+      /*sobre nosotros*/
+      .dropdown-icon {
+        display: inline-block;
+        width: 5px;
+        height: 5px;
+        margin-left: 5px;
+        border: solid black;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+        transition: transform 0.2s ease-in-out;
+      }
+      
+      .dropdown-icon.active {
+        transform: rotate(-135deg);
+      }
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        z-index: 1;
+      }
+      
+      .dropdown.active .dropdown-menu {
+        display: block;
+      }
+      
+      .dropdown-menu a {
+        display: block;
+        padding: 10px;
+        background-color: #fff;
+        color: #000;
+        text-decoration: none;
+        border-bottom: 1px solid #ccc;
+      }
+      
+      .dropdown-menu a:hover {
+        background-color: #f0f0f0;
+      }
+
+
+
+
+
+      .service-dropdown-icon{
+        display: inline-block;
+        width: 5px;
+        height: 5px;
+        margin-left: 5px;
+        border: solid black;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+        transition: transform 0.2s ease-in-out;
+
+      }
+      .service-dropdown-icon.active {
+        transform: rotate(-135deg);
+      }
+
+      .service-dropdown-menu {
+        display: none;
+        position: absolute;
+        z-index: 1;
+      }
+      
+      .service-dropdown.active .service-dropdown-menu {
+        display: block;
+      }
+      
+      .service-dropdown-menu a {
+        display: block;
+        padding: 10px;
+        background-color: #fff;
+        color: #000;
+        text-decoration: none;
+        border-bottom: 1px solid #ccc;
+      }
+      
+      .service-dropdown-menu a:hover {
+        background-color: #f0f0f0;
+      }
+
+
+
+
+
+      .service-dropdown-valor-icon{
+        display: inline-block;
+        width: 5px;
+        height: 5px;
+        margin-left: 5px;
+        border: solid black;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+        transition: transform 0.2s ease-in-out;
+
+      }
+      .service-dropdown-valor-icon.active {
+        transform: rotate(-135deg);
+      }
+
+      .service-dropdown-valor-menu {
+        display: none;
+        position: absolute;
+        z-index: 1;
+      }
+      
+      .service-dropdown-valor.active .service-dropdown-valor-menu {
+        display: block;
+      }
+      
+      .service-dropdown-valor-menu a {
+        display: block;
+        padding: 10px;
+        background-color: #fff;
+        color: #000;
+        text-decoration: none;
+        border-bottom: 1px solid #ccc;
+      }
+      
+      .service-dropdown-valor-menu a:hover {
+        background-color: #f0f0f0;
+      }
+
+      
+     /* Estilos para dispositivos más pequeños */
+@media (max-width: 600px) {
+.barra-roja {
+  font-size: 0.8em;
+  text-align: center;
+}
+
+.navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .navbar-nav {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column; /* Agregamos esta propiedad para que los elementos se ubiquen verticalmente */
+    align-items: center; /* Agregamos esta propiedad para centrar los elementos verticalmente */
+  }
+  
+  .nav-link {
+    padding: 5px;
+  }
+
+
+  /*barra de busqueda*/
+  .search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+  
+  .search-container > * {
+    margin-bottom: 10px;
+  }
+  
+  #minPrice, #maxPrice {
+    width: 80%;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+  #provincia{
+    width: 90%;
+    margin-left: 15px;
+    margin-top: 10px;
+  }
+
+}
+
+
+
+/*footer*/
+footer {
+background-color: #4B4F55;
+color: white;
+font-family: Montserrat;
+padding: 35px;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+align-items: start;
+}
+
+footer > div {
+margin-bottom: 25px;
+flex-basis: calc(33.33% - 10px);
+text-align: start;
+}
+
+footer img {
+max-width: 100%;
+height: auto;
+}
+
+footer p {
+margin: 0;
+}
+
+.logo > a {
+margin-bottom: 30px;
+}
+
+.logo > div{
+gap: 65px;
+}
+
+.logo > p{
+margin-bottom: 20px;
+}
+.suscribete p {
+margin: 0;
+text-align: justify;
+margin-bottom: 10px;
+}
+.suscribete div p{
+margin-top: 10px;
+}
+
+.barra-blanca{
+background-color: white;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+font-family: Montserrat;
+padding: 0px 80px;
+
+
+
+}
+.barra-blanca > p {
+font-size: 14px;
+}
+
+@media screen and (max-width: 768px) {
+footer {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 40px; /* adjust as needed */
+}
+
+footer > div {
+  flex-basis: auto;
+  margin-bottom: 40px;
+}
+
+.detalles {
+  order: 2;
+}
+
+.suscribete {
+  order: 3;
+}
+
+.suscribete input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.suscribete p {
+  margin: 0;
+  text-align: justify;
+  margin-bottom: 10px;
+}
+}
+
+.hero {
+    position: relative;
+    height: 100vh;
+  }
+  
+  .hero img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1420px;
+    height: 450px;
+    margin-top: 50px;
+    
+  }
+
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    align-items: center;
+    margin-top: -50px;
+  }
+  
+  .container img {
+    width: 120%;
+    height: auto;
+    margin-left: 60px;
+  }
+  
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  h3, h2, p {
+    margin: 0;
+    padding: 0;
+    font-family: Montserrat;
+    text-align: justify;
+    margin-top: 20px;
+    margin-left: 140px;
+  }
+    
+</style>
+<body>
+
+    <div class="barra-roja">
+        <p>931 59 58 80</p>
+        <p>info@hannanpiper.com</p>
+    </div>
+    <nav class="navbar">
+        <a class="navbar-brand" href="https://hannan-piper.com/">
+          <img src="https://i.postimg.cc/DwR6PXHw/logo-hannan-peque-o.png" width="30" height="30" alt="">
+        </a>
+        <div class="navbar-collapse" id="navbarNav">
+          <div class="navbar-nav mr-auto">
+            <div class="nav-item active">
+              <a class="nav-link" href="https://hannan-piper.com/quieres-vender-o-alquilar/">¿Quieres vender o alquilar?</a>
+            </div>
+            <div class="dropdown">
+              <a class="nav-link dropdown-toggle" href="" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                Sobre nosotros <span class="dropdown-icon"></span>
+              </a>
+            
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="https://hannan-piper.com/sobre-nosotros/">Sobre Nosotros</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/oficinas/">Oficinas</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/hannan-piper-university/">Hannan-piper University</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/obra-social/">Obra social</a>
+              </div>
+            </div>
+            <div class="service-dropdown">
+              <a class="nav-link dropdown-toggle" href="" role="button" id="serviceDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                Áreas de servicio <span class="service-dropdown-icon"></span>
+              </a>
+            
+              <div class="service-dropdown-menu" aria-labelledby="serviceDropdownMenuLink">
+                <a class="dropdown-item" href="https://hannan-piper.com/areas-de-servicio/">Áreas de Servicio</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/venta-residencial/">Venta Résidencial</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/venta-comercial/">Venta Comercial</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/propiedades-de-lujo/">Propiedades de Lujo</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/personal-shopper-inmobiliario/">Personal Shopper Inmobiliario</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/alquiler/">Alquiler</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/obra-nueva/">Obra Nueva</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/inversiones-inmobiliarias/">Inversiones Inmobiliarias</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/business-brokerage/">Business Brokerage</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/seguros/">Seguros</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/administracion-de-propiedades/">Administración de Propiedades</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/reformas/">Reformas</a>
+              </div>
+            </div>
+            <div class="service-dropdown-valor">
+              <a class="nav-link dropdown-toggle" href="" role="button" id="serviceDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                Propuesta de Valor <span class="service-dropdown-valor-icon"></span>
+              </a>
+            
+              <div class="service-dropdown-valor-menu" aria-labelledby="serviceDropdownMenuLink">
+                <a class="dropdown-item" href="https://hannan-piper.com/propuesta-de-valor/">Propuesta de Valor</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/portales-inmobiliarios/">150 Portales Inmobiliarios</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/comunicacion-efectiva/">Comunicación Efectiva</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/alarmas/">Alarmas</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/big-data-2/">Big Data</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/home-staging-14/">Home Staging</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/hipotecas/">Hipotecas</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/neuromarketing/">Neuromarketing</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/virtual-staging/">Virtual Staging</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/vaciado-de-pisos/">Vaciado de Pisos</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/visitas-virtuales-360/">Visitas Virtuales 360°</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/renders-360/">Renders 360</a>
+                <a class="dropdown-item" href="https://hannan-piper.com/servicios-de-postventa/">Servicios de Postventa</a>
+              </div>
+            </div>
+            <div class="nav-item">
+              <a class="nav-link" href="https://hannan-piper.com/noticias/">Noticias</a>
+            </div>
+            <div class="nav-item">
+              <a class="nav-link" href="https://hannan-piper.com/propiedad/">Propiedades</a>
+            </div>
+            <div class="nav-item">
+              <a class="nav-link" href="https://hannan-piper.com/unete-al-equipo/">Únete al Equipo</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+
+           
+      <div class="hero">
+        <img src="https://i.postimg.cc/tC3gLn20/Cream-Modern-Real-Estate-SEEK-Cover-Image-3.png" alt="Descripción de la imagen" >
+     
+      </div>
+
+      <div class="container">
+        <img src="https://i.postimg.cc/WzDkGpvN/home-2.png" alt="">
+        <div class="text-container">
+          <h3 style="color: red; font-weight: bold">¿QUIENES SOMOS?</h3>
+          <h2>Hannan-Piper Real Estate</h2>
+          <div>
+            <p style="text-align: justify">Hannan-Piper Real Estate es una empresa de servicios inmobiliarios con el compromiso de <br>
+                proveer un servicio personalizado, sensible, ético y con los más altos estándares de <br>
+               calidad; logrando así un alcance global que nos permita vender su propiedad en el menor <br>
+               tiempo posible y al mejor valor de mercado.<br><br>  
+               Hannan-Piper Real Estate es una unión de visiones y paradigmas que nos inspiran cada día <br> 
+               a revolucionar positivamente el sector inmobiliario. William W. Hannan fue el primer <br> 
+               presidente del National Association of Realtors (NAR) en 1908 y quien luchó por que se <br> 
+               adoptara el primer código de ética para agentes inmobiliarios. Walter C. Piper, quien <br> 
+               presidió la NAR en 1916, luchó por que educara y se licenciara por primera vez a los que se <br> 
+               dedicaban al sector inmobiliario, con el propósito de profesionalizar las prácticas y ofrecer <br> 
+               un mejor valor en el servicio experto que brindamos. En resumidas cuentas, creemos <br> 
+               firmemente en hacer las cosas bien y esto nos abre puertas para que cada día más <br> 
+               personas confíen en nosotros para atender sus necesidades inmobiliarias.
+            </p>
+               
+          </div>
+          <button>Ver Mas</button>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+      <footer style="background-color: #4B4F55; display:flex; flex-direction: row; justify-content: space-around; align-items: center; color: white; font-family: Montserrat; padding: 25px;">
+        <div class="logo">
+          <img src="https://i.postimg.cc/65xbzqQD/logo-blanco-png.png" alt="" width="300px" height="60px">
+          <div>
+            <a href="https://www.facebook.com/hannanpiperrealestate"><img  src="https://i.postimg.cc/ZntHfsJr/Facebook.png" alt=""></a>
+            <a href="https://www.youtube.com/channel/UCfAtt0tqkSvbtst82qot51Q"><img src="https://i.postimg.cc/135HYq1Y/youtube.png" alt=""></a>
+            <a href="https://www.linkedin.com/company/hannanpiper/"><img src="https://i.postimg.cc/XvtkJ1GT/linkedin.png" alt=""></a>
+            <a href="https://www.instagram.com/hannanpiperrealestate/"><img  src="https://i.postimg.cc/66rfW09m/instagram.png" alt=""></a>
+          </div>
+          <a style="text-decoration: none; color:white; font-size: 16px; margin-top: 25px" href="https://hannan-piper.com/cookies/"><p style="margin-top: 25px">Politica de Cookies</p></a>
+          <a style="text-decoration: none; color:white; font-size: 16px; margin-top: 10px" href="https://hannan-piper.com/politica-de-privacidad/"><p style="margin-top:15px">Política de privacidad</p></a>
+          <a style="text-decoration: none; color:white; font-size: 16px; margin-top: 10px" href="https://hannan-piper.com/aviso-legal/"><p style="margin-top:15px">Avisos legales</p></a>
+          <a style="text-decoration: none; color:white; font-size: 16px; margin-top: 10px" href="https://hannan-piper.com/politica-de-privacidad-redes-sociales/"><p style="margin-top:15px">Política de privacidad Redes sociales</p></a>
+        </div>
+        <div class="detalles" style="margin-top: -80px;">
+          <h2>Detalles de Contacto</h2>
+          <div style="display:flex; flex-direction:row; justify-content:start; align-items: center; ">
+            <img src="https://i.postimg.cc/nrGWqfqs/MAIL.png" alt="">
+            <p style="margin-left: 10px">info@hannanpiper.com</p>
+          </div>
+          <div style="display:flex; flex-direction:row; justify-content:space-around; align-items: center;">
+            <img src="https://i.postimg.cc/c4TjHZs2/DIRECCION.png" alt="">
+            <p>Av. Diagonal, 571 – 2a Planta Barcelona (Barcelona)</p>
+          </div>
+          <div style="display:flex; flex-direction:row; justify-content:start; align-items: center;">
+            <img src="https://i.postimg.cc/nrGWqfqs/MAIL.png" alt="">
+            <p style="margin-left: 10px">931 59 58 80</p>
+          </div>
+        </div>
+        <div class="suscribete" style="display: flex; flex-direction: column; margin-top: 25px;">
+          <h3 style="font-size: 14px; ">Suscríbase aquí a nuestro newsletter y será el primero en recibir nuestras noticias.</h3>
+          <input style="border-radius: 5px; border: none; height: 16px; padding: 10px" placeholder="Correo Electrònico" type="text">
+          <button style="background-color: red; color: white; border: none; border-radius: 5px; margin-top: 15px; height: 30px">Enviar</button>
+          <p style="font-size: 12px; font-family: Montserrat; margin-top: 40px;">
+            La empresa Hannan-Piper Real Estate será responsable de la 
+            información provista con la finalidad de gestionar la suscripción 
+            a la newsletter, para realizar envíos correspondientes. Usted 
+            tiene el derecho de acceder, rectificar y suprimir los datos. 
+            Puede consultar la información adicional y detallada sobre 
+            Protección de Datos en nuestra página web, apartado Política 
+            de Privacidad.
+          </p>
+          <div style="display: flex; flex-direction: row;">
+            <input type="checkbox">
+            <p style="font-size: 10px; font-family: Montserrat;">He leído y acepto la información básica de protección de datos.</p>
+          </div>
+          
+        </div>
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+  
+      </footer>
+      <div class="barra-blanca">
+        <p>© Hannan-Piper Real Estate 2022</p>
+        <img src="https://i.postimg.cc/mkm1BvBH/api.png" alt="">
+      </div>
+
+      <script>
+        /*menu desplegable 1 */
+        var dropdown = document.querySelector('.dropdown');
+        var dropdownIcon = document.querySelector('.dropdown-icon');
+        var dropdownMenu = document.querySelector('.dropdown-menu');
+        
+        dropdown.addEventListener('click', function() {
+          dropdown.classList.toggle('active');
+        });
+        
+        // Cierra el menú desplegable si se hace clic fuera de él
+        window.addEventListener('click', function(event) {
+          if (!dropdown.contains(event.target)) {
+            dropdown.classList.remove('active');
+          }
+        });
+  
+        /*menu desplegable 2 */
+        var serviceDropdown = document.querySelector('.service-dropdown');
+        var serviceDropdownIcon = document.querySelector('.service-dropdown-icon');
+        var serviceDropdownMenu = document.querySelector('.service-dropdown-menu');
+  
+        serviceDropdown.addEventListener('click', function() {
+          serviceDropdown.classList.toggle('active');
+        });
+  
+        window.addEventListener('click', function(event) {
+          if (!serviceDropdown.contains(event.target)) {
+            serviceDropdown.classList.remove('active');
+          }
+        });
+  
+        /*menu desplegable 3 */
+        var serviceDropdownValor = document.querySelector('.service-dropdown-valor');
+        var serviceDropdownIconValor = document.querySelector('.service-dropdown-valor-icon');
+        var serviceDropdownMenuValor = document.querySelector('.service-dropdown-valor-menu');
+  
+        serviceDropdownValor.addEventListener('click', function() {
+          serviceDropdownValor.classList.toggle('active');
+        });
+  
+        window.addEventListener('click', function(event) {
+          if (!serviceDropdownValor.contains(event.target)) {
+            serviceDropdownValor.classList.remove('active');
+          }
+        });
+    </script>
+
+    
+    
+</body>
+</html>
