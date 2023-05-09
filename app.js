@@ -99,7 +99,31 @@ app.get('/propiedad/:prop_id', (req, res) => {
 });
 
 app.get('/home', (req, res) => {
-  res.render('home');
+  const headers = {'Authorization': 'Bearer 7a54f9633cf443d988c0c49e2b77989b'};
+  const propiedades_disponibles = [];
+
+  async.timesSeries(5, (pageNumber, next) => {
+    const url = `https://witei.com/api/v1/houses/?page=${pageNumber+1}&status=available`;
+    request({url, headers}, (error, response, body) => {
+      if (error) {
+        next(error);
+      } else {
+        const data = JSON.parse(body);
+        if (data.results) {
+          propiedades_disponibles.push(...data.results);
+        } else {
+          console.log('No se encontraron resultados en la página', pageNumber+1);
+        }
+        next();
+      }
+    });
+  }, (error) => {
+    if (error) {
+      res.status(500).send('Error interno del servidor');
+    } else {
+      res.render('home', { propiedades: propiedades_disponibles });
+    }
+  });
 });
 
 app.listen(port, () => {

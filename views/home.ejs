@@ -13,6 +13,33 @@
         padding: 0px;
     }
 
+    .slider {
+
+      overflow: hidden;
+      width: 80%;
+    }
+    
+    .slides {
+      display: flex;
+      transition: transform 0.3s ease-in-out;
+    }
+    
+    .slides img {
+      width: 100%;
+      object-fit: cover;
+    }
+    
+    .slider:hover .slides {
+      cursor: grab;
+    }
+    
+    .slider:hover .slides:active {
+      cursor: grabbing;
+    }
+
+
+
+
     .card-container {
         display: flex;
         flex-wrap: wrap;
@@ -27,7 +54,7 @@
         border: 1px solid #dddddd;
         border-radius: 4px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        padding: 16px;
+        padding: 10px;
         width: 300px;
     }
 
@@ -306,9 +333,45 @@
         background-color: #f0f0f0;
       }
 
+
+      .verMas{
+        width: 120px;
+        height: 40px;
+        background-color: red;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        margin-left: 140px;
+        margin-top: 30px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .destacadas{
+        display: flex;
+        flex-direction: column;
+        font-family: Montserrat;
+        padding: 25px;
+      }
+
+      .ellos{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: Montserrat;
+        font-weight: bold;
+        margin-top: 50px;
+        margin-bottom: 40px;
+      }
+
       
      /* Estilos para dispositivos más pequeños */
 @media (max-width: 600px) {
+  .ellos > h1{
+    font-size: 13px;
+  }
+
 .barra-roja {
   font-size: 0.8em;
   text-align: center;
@@ -421,7 +484,36 @@ padding: 0px 80px;
 font-size: 14px;
 }
 
+.hero {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* relación de aspecto 16:9 */
+  overflow: hidden;
+}
+
+.hero img {
+  position: absolute;
+  padding: 5px;
+  top: 0;
+  left: 0;
+  width: 93%;
+  height: 95%;
+  object-fit: cover;
+  margin-left: 22px;
+}
+
 @media screen and (max-width: 768px) {
+  .hero img {
+    position: absolute;
+    padding: 5px;
+    top: 0;
+    left: 0;
+    width: 93%;
+    height: 95%;
+    object-fit: cover;
+    margin-left: 10px;
+  }
 footer {
   flex-direction: column;
   align-items: stretch;
@@ -450,21 +542,14 @@ footer > div {
   text-align: justify;
   margin-bottom: 10px;
 }
+
+
 }
 
-.hero {
-    position: relative;
-    height: 100vh;
-  }
-  
-  .hero img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 1420px;
-    height: 450px;
-    margin-top: 50px;
-    
+
+
+  .hero {
+    padding-bottom: 25%; /* relación de aspecto 4:3 */
   }
 
 
@@ -473,7 +558,7 @@ footer > div {
     grid-template-columns: 1fr 2fr;
     gap: 20px;
     align-items: center;
-    margin-top: -50px;
+    margin-top: 40px;
   }
   
   .container img {
@@ -496,6 +581,100 @@ footer > div {
     margin-top: 20px;
     margin-left: 140px;
   }
+  
+  .verMas {
+    margin-top: 20px;
+  }
+  
+  @media screen and (max-width: 767px) {
+    .container {
+      display: block;
+      margin-top: 20px;
+    }
+  
+    .container img {
+      width: 78%;
+      margin: 2;
+      margin-top: 40px;
+    }
+  
+    .text-container {
+      margin-top: 20px;
+      margin-left: 0;
+    }
+  
+    h3{
+      margin-left: 20px;
+      font-size: 20px;
+      padding: 0px;
+      text-align: center;
+    }
+    h2 {
+      margin-left: 20px;
+      font-size: 20px;
+      padding: 0px;
+      text-align: center;
+    }
+    p {
+      margin-left: 2px;
+      font-size: 12px;
+      padding: 15px;
+      text-align: center;
+    }
+  }
+
+
+  .tarjeta-contenedor{
+    justify-content: space-around;
+    margin-bottom: 100px;
+  }
+
+  .tarjeta {
+    box-sizing: border-box;
+    width: 25%;
+    margin-bottom: 20px;
+    padding: -35px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: start;
+    height: 650px;
+  }
+  
+  .tarjeta img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .tarjeta h3,
+.tarjeta p {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+  
+  @media only screen and (max-width: 768px) {
+    .tarjeta {
+      width: 45%;
+    }
+    .tarjeta h3,
+  .tarjeta p {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  }
+  
+  @media only screen and (max-width: 480px) {
+    .tarjeta {
+      width: 100%;
+    }
+  }
+  
+  .tarjeta-contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
     
 </style>
 <body>
@@ -582,7 +761,7 @@ footer > div {
 
            
       <div class="hero">
-        <img src="https://i.postimg.cc/tC3gLn20/Cream-Modern-Real-Estate-SEEK-Cover-Image-3.png" alt="Descripción de la imagen" >
+        <img src="https://i.postimg.cc/bv5nkndw/Cream-Modern-Real-Estate-SEEK-Cover-Image-4.png" alt="Descripción de la imagen" >
      
       </div>
 
@@ -606,14 +785,104 @@ footer > div {
                firmemente en hacer las cosas bien y esto nos abre puertas para que cada día más <br> 
                personas confíen en nosotros para atender sus necesidades inmobiliarias.
             </p>
-               
           </div>
-          <button>Ver Mas</button>
+          <button class="verMas">Ver Mas</button>
         </div>
       </div>
 
+      <div class="destacadas">
+        <h1>Propiedades Destacadas</h1>
+        <div id="card-container" class="card-container">
+          <% propiedades.slice(0, 8).forEach(propiedad => { %>
+            <a href="/propiedad/<%= propiedad.identifier %>" style="text-decoration: none; color: inherit;">
+              <div class="card" data-provincia="<%= propiedad.province %>">
+                  <img src="<%= propiedad.pictures[0] %>" alt="<%= propiedad.title %>">
+                  <div class="card-title" style="font-family: Montserrat; text-transform: capitalize;"><%= propiedad.title %></div>
+                  <div class="card-info card-province" style="font-family: Montserrat; ">Provincia: <%= propiedad.province %></div>
+                  <div class="card-info2" style="font-family: Montserrat; ">Baños: <div> <%= propiedad.bathrooms %>  <img src="https://i.postimg.cc/4xMbG419/48045.png" style="width: 22px; height: 22px; color: black; margin-top: 10px; margin-bottom: -8px;" />  </div></div>
+                  <div class="card-info2" style="font-family: Montserrat; " >Habitaciones: <div style="color: black;"> <%= propiedad.bedrooms %> <img src="https://i.postimg.cc/cJY80VML/hab.png" style="width: 30px; height: 30px; color: black; margin-top: 10px; margin-bottom: -8px;" /> </div></div>
+                  <div class="card-info2" style="font-family: Montserrat; display: inline-block; margin-top: 20px;  ">
+                      Precio de Venta:
+                      <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <img src="https://i.postimg.cc/zDT4tvr3/21125.png" style="width: 12px; height: 12px; color: black;">
+                        <span class="card-price" style="display: inline-block; text-align: right; width: 80px;"><%= propiedad.selling_cost.toLocaleString('es-ES', { style: 'decimal' }) %></span>
+                      </div>
+                    </div>
+                    
+                    <div class="card-info2" style="font-family: Montserrat; display: inline-block; margin-left: 90px; ">
+                      Precio de Alquiler:
+                      <div style="display: flex; justify-content: space-between; align-items: center; ">
+                        <img src="https://i.postimg.cc/zDT4tvr3/21125.png" style="width: 12px; height: 12px; color: black;">
+                        <span class="card-price" style="display: inline-block; text-align: right; width: 80px;"><%= propiedad.renting_cost.toLocaleString('es-ES', { style: 'decimal' }) %></span>
+                      </div>
+                    </div>
+                  <!-- <div class="card-info2" style="font-family: Montserrat; display: inline-block;  ">Precio de Venta:  <span class="card-price"> <img  src="https://i.postimg.cc/zDT4tvr3/21125.png" style="width: 15px; height: 15px; color: black; margin-top: 10px; margin-bottom: -3px; margin-left: -50px; margin-left: -40px;" />  <%= propiedad.selling_cost %> </span></div> 
+                  <div class="card-info2" style="font-family: Montserrat; display: inline-block;  ">Precio de Alquiler:  <span class="card-price"> <img  src="https://i.postimg.cc/zDT4tvr3/21125.png" style="width: 15px; height: 15px; color: black; margin-top: 10px; margin-bottom: -3px; margin-left: -50px; margin-left: -40px;" />  <%= propiedad.transfer_cost %> </span></div> -->
+              </div>
+          </a>
+          <% }); %>
+       </div>
+      </div>
 
+      <div class="ellos">
+        <h1>ELLOS HABLAN DE NOSOTROS</h1>
+        <div class="slider">
+          <div class="slides">
+            <img src="https://i.postimg.cc/mZQ591vw/1.png">
+            <img src="https://i.postimg.cc/XqG11xxG/2.png">
+            <img src="https://i.postimg.cc/3RVQwkcG/3.png">
+            <img src="https://i.postimg.cc/k5g0FNr8/4.png">
+            <img src="https://i.postimg.cc/ZRyDVVw9/5.png">
+          </div>
+        </div>
+      </div>
 
+      <div class="ellos" >
+        <h1>TESTIMONIOS</h1>
+        <div class="slider">
+          <div class="slides">
+            <img src="https://i.postimg.cc/gJMwMb2s/1.png">
+            <img src="https://i.postimg.cc/TY3TfNc8/2.png">
+            <img src="https://i.postimg.cc/ryQLnC2f/3.png">
+            <img src="https://i.postimg.cc/fR0nRGtP/4.png">
+            <img src="https://i.postimg.cc/Wz4xLCcX/5.png">
+            <img src="https://i.postimg.cc/dVCpYGgP/6.png">
+            <img src="https://i.postimg.cc/C5dr68b2/7.png">
+          </div>
+        </div>
+      </div>
+     
+
+      <div class="tarjeta-contenedor">
+        <div class="tarjeta">
+          <img src="https://i.postimg.cc/T3Mqg7JK/1.png" alt="Imagen 1">
+          <h3>Hannan-Piper Real Estate incorpora a Juan Diego Reillo como Director de Ventas en Barcelona</h3>
+          <p>El éxito no es fruto de la casualidad y para alcanzarlo existe una maquinaria humana comprometida. Esta frase gana sentido cuando se observa el crecimiento de empresas como Hannan-Piper Real Estate en su compromiso...</p>
+          <form action="https://hannan-piper.com/hannan-piper-real-estate-incorpora-a-juan-diego-reillo-como-director-de-ventas-en-barcelona/" target="_blank">
+            <button type="submit" style="width: 150px; height: 50px; background-color: red; color: white; font-weight: bold; border: none; border-radius: 5px; margin-left: 10px; margin-top: 15px; font-size: 14px; cursor: pointer;" class="ver-mas">Ver más</button>
+          </form>
+        </div>
+        <div class="tarjeta">
+          <img src="https://i.postimg.cc/J7SdYQQL/2.png" alt="Imagen 2">
+          <h3>La aplicación del neuromarketing en la venta de propiedades</h3>
+          <p>El neuromarketing inmobiliario es una de las últimas herramientas implementadas en la venta de propiedades. Esta surge del conjunto de dos disciplinas, la neurociencia y el marketing, con el objetivo de brindar nuevos...</p>
+          <form action="https://hannan-piper.com/la-aplicacion-del-neuromarketing-en-la-venta-de-propiedades/" target="_blank">
+            <button type="submit" style="width: 150px; height: 50px; background-color: red; color: white; font-weight: bold; border: none; border-radius: 5px; margin-left: 10px; margin-top: 15px; font-size: 14px; cursor: pointer;" class="ver-mas">Ver más</button>
+          </form>
+        </div>
+        <div class="tarjeta">
+          <img src="https://i.postimg.cc/L5vpP95m/3.png" alt="Imagen 3">
+          <h3>Hannan-Piper Luxury Homes, la propiedad de lujo en las manos correctas</h3>
+          <p>Comparadas con el proceso que se usa para la venta de una propiedad estándar, las estrategias de venta de un inmueble de lujo son muy diferentes. Es por eso que, para poder llevar a cabo tanto la compra como la venta...</p>
+          <form action="https://hannan-piper.com/hannan-piper-luxury-homes-la-propiedad-de-lujo-en-las-manos-correctas/" target="_blank">
+            <button type="submit" style="width: 150px; height: 50px; background-color: red; color: white; font-weight: bold; border: none; border-radius: 5px; margin-left: 10px; margin-top: 15px; font-size: 14px; cursor: pointer;" class="ver-mas">Ver más</button>
+          </form>
+        </div>
+      </div>
+      
+
+    
+      
 
 
 
@@ -636,14 +905,14 @@ footer > div {
           <a style="text-decoration: none; color:white; font-size: 16px; margin-top: 10px" href="https://hannan-piper.com/politica-de-privacidad-redes-sociales/"><p style="margin-top:15px">Política de privacidad Redes sociales</p></a>
         </div>
         <div class="detalles" style="margin-top: -80px;">
-          <h2>Detalles de Contacto</h2>
+          <h2 style="font-family: Montserrat; font-weight: bold; font-size: 25px; margin-left: 10px">Detalles de Contacto</h2>
           <div style="display:flex; flex-direction:row; justify-content:start; align-items: center; ">
             <img src="https://i.postimg.cc/nrGWqfqs/MAIL.png" alt="">
             <p style="margin-left: 10px">info@hannanpiper.com</p>
           </div>
           <div style="display:flex; flex-direction:row; justify-content:space-around; align-items: center;">
             <img src="https://i.postimg.cc/c4TjHZs2/DIRECCION.png" alt="">
-            <p>Av. Diagonal, 571 – 2a Planta Barcelona (Barcelona)</p>
+            <p style="text-align: start;">Av. Diagonal, 571 – 2a Planta Barcelona (Barcelona)</p>
           </div>
           <div style="display:flex; flex-direction:row; justify-content:start; align-items: center;">
             <img src="https://i.postimg.cc/nrGWqfqs/MAIL.png" alt="">
@@ -651,8 +920,8 @@ footer > div {
           </div>
         </div>
         <div class="suscribete" style="display: flex; flex-direction: column; margin-top: 25px;">
-          <h3 style="font-size: 14px; ">Suscríbase aquí a nuestro newsletter y será el primero en recibir nuestras noticias.</h3>
-          <input style="border-radius: 5px; border: none; height: 16px; padding: 10px" placeholder="Correo Electrònico" type="text">
+          <h3 style="font-size: 14px; margin-left: 2px ">Suscríbase aquí a nuestro newsletter y será el primero en recibir nuestras noticias.</h3>
+          <input style="border-radius: 5px; border: none; height: 10px; padding: 15px; margin-top: 10px" placeholder="Correo Electrònico" type="text">
           <button style="background-color: red; color: white; border: none; border-radius: 5px; margin-top: 15px; height: 30px">Enviar</button>
           <p style="font-size: 12px; font-family: Montserrat; margin-top: 40px;">
             La empresa Hannan-Piper Real Estate será responsable de la 
@@ -669,31 +938,10 @@ footer > div {
           </div>
           
         </div>
-
-
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       
-  
+    
       </footer>
+      
       <div class="barra-blanca">
         <p>© Hannan-Piper Real Estate 2022</p>
         <img src="https://i.postimg.cc/mkm1BvBH/api.png" alt="">
@@ -745,6 +993,98 @@ footer > div {
             serviceDropdownValor.classList.remove('active');
           }
         });
+
+
+      
+
+
+
+
+const slider = document.querySelector('.slider');
+const slides = document.querySelector('.slides');
+let isDragging = false;
+let startPos = 0;
+let currentTranslate = 0;
+let prevTranslate = 0;
+let animationID = 0;
+let currentIndex = 0;
+const intervalTime = 5000;
+let timerID;
+
+slides.addEventListener('mousedown', (event) => {
+  clearInterval(timerID);
+  isDragging = true;
+  startPos = event.clientX;
+  slider.classList.add('grabbing');
+  animationID = requestAnimationFrame(animation);
+});
+
+slides.addEventListener('mousemove', (event) => {
+  if (isDragging) {
+    const currentPosition = event.clientX;
+    currentTranslate = prevTranslate + currentPosition - startPos;
+  }
+});
+
+slides.addEventListener('mouseup', () => {
+  isDragging = false;
+  cancelAnimationFrame(animationID);
+  const movedBy = currentTranslate - prevTranslate;
+  if (movedBy < -100 && currentIndex < 4) {
+    currentIndex++;
+  }
+  if (movedBy > 100 && currentIndex > 0) {
+    currentIndex--;
+  }
+  setPositionByIndex();
+  slider.classList.remove('grabbing');
+  startTimer();
+});
+
+slides.addEventListener('mouseleave', () => {
+  isDragging = false;
+  cancelAnimationFrame(animationID);
+  slider.classList.remove('grabbing');
+  startTimer();
+});
+
+function animation() {
+  setSliderPosition();
+  if (isDragging) requestAnimationFrame(animation);
+}
+
+function setSliderPosition() {
+  slides.style.transform = `translateX(${currentTranslate}px)`;
+}
+
+function setPositionByIndex() {
+  currentTranslate = currentIndex * -100;
+  prevTranslate = currentTranslate;
+  setSliderPosition();
+}
+
+function nextSlide() {
+  if (currentIndex === 4) {
+    currentIndex = 0;
+  } else {
+    currentIndex++;
+  }
+  setPositionByIndex();
+}
+
+function startTimer() {
+  timerID = setInterval(() => {
+    nextSlide();
+  }, intervalTime);
+}
+
+startTimer();
+
+
+
+
+
+
     </script>
 
     
