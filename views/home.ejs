@@ -44,9 +44,9 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        padding: 18px;
+        justify-content: space-around;
+        gap: 2px;
+        padding: 150px;
     }
 
     .card {
@@ -197,7 +197,7 @@
       .barra-roja{
         width: 100%;
         height: 50px;
-        background-color: red;
+        background-color: #FF0326;
         color: white;
         display: flex;
         flex-direction: row;
@@ -337,7 +337,7 @@
       .verMas{
         width: 120px;
         height: 40px;
-        background-color: red;
+        background-color: #FF0326;
         color: white;
         border: none;
         border-radius: 5px;
@@ -630,6 +630,7 @@ footer > div {
   .tarjeta-contenedor{
     justify-content: space-around;
     margin-bottom: 100px;
+    margin-top: 120px;
   }
 
   .tarjeta {
@@ -767,14 +768,14 @@ footer > div {
 
            
       <div class="hero">
-        <img src="https://i.postimg.cc/hvp5gSS5/Cream-Modern-Real-Estate-SEEK-Cover-Image-6.png" alt="Descripción de la imagen" >
+        <img src="https://i.postimg.cc/1zP2BkT4/Cream-Modern-Real-Estate-SEEK-Cover-Image-7.png" alt="Descripción de la imagen" >
      
       </div>
 
       <div class="container">
         <img src="https://i.postimg.cc/WzDkGpvN/home-2.png" alt="">
         <div class="text-container">
-          <h3 style="color: red; font-weight: bold">¿QUIENES SOMOS?</h3>
+          <h3 style="color: #FF0326; font-weight: bold">¿QUIENES SOMOS?</h3>
           <h2>Hannan-Piper Real Estate</h2>
           <div>
             <p style="text-align: justify">Hannan-Piper Real Estate es una empresa de servicios inmobiliarios con el compromiso de <br>
@@ -792,14 +793,14 @@ footer > div {
                personas confíen en nosotros para atender sus necesidades inmobiliarias.
             </p>
           </div>
-          <button class="verMas">Ver Mas</button>
+        <a style="cursor: pointer;" href="https://hannan-piper.com/sobre-nosotros/">  <button class="verMas">Ver Mas</button> </a>
         </div>
       </div>
-
+      
       <div class="destacadas">
-        <h1>Propiedades Destacadas</h1>
+        <h1 style="margin-left: 50px; margin-bottom: -40px; margin-top: 50px;">Propiedades Destacadas</h1>
         <div id="card-container" class="card-container">
-          <% propiedades.slice(0, 8).forEach(propiedad => { %>
+          <% propiedades.slice(0, 9).forEach(propiedad => { %>
             <a href="/propiedad/<%= propiedad.identifier %>" style="text-decoration: none; color: inherit;">
               <div class="card" data-provincia="<%= propiedad.province %>">
                   <img src="<%= propiedad.pictures[0] %>" alt="<%= propiedad.title %>">
@@ -831,7 +832,7 @@ footer > div {
       </div>
 
       <div class="ellos">
-        <h1>ELLOS HABLAN DE NOSOTROS</h1>
+        <h1 style="margin-bottom: 60px;">ELLOS HABLAN DE NOSOTROS</h1>
         <div class="slider">
           <div class="slides">
             <img src="https://i.postimg.cc/mZQ591vw/1.png">
@@ -858,8 +859,9 @@ footer > div {
         </div>
       </div>
      
-
+     
       <div class="tarjeta-contenedor">
+        
         <div class="tarjeta">
           <img src="https://i.postimg.cc/T3Mqg7JK/1.png" alt="Imagen 1">
           <h3>Hannan-Piper Real Estate incorpora a Juan Diego Reillo como Director de Ventas en Barcelona</h3>
