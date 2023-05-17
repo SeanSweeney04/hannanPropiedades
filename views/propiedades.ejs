@@ -696,9 +696,9 @@
     margin-bottom: 100px;
   }
   
+  
   .page-item {
-    border: none;
-    margin-right: 5px;
+    margin: 0 5px;
   }
   
   .page-link {
@@ -716,10 +716,25 @@
 
   ul.pagination {
     list-style: none;
-    margin: 50;
-    padding: 50;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
   }
-        
+
+  @media (max-width: 768px) {
+    .pagination {
+      flex-wrap: wrap;
+      margin-top: 40px;
+    margin-bottom: 40px;
+    }
+
+    .page-item {
+      margin: 5px;
+    }
+
+
+  }
     </style>
 </head>
 <body>
