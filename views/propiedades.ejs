@@ -685,6 +685,40 @@
       margin-bottom: 10px;
     }
   }
+
+  .pagination {
+    background-color: whitesmoke;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+  
+  .page-item {
+    border: none;
+    margin-right: 5px;
+  }
+  
+  .page-link {
+    color: #333;
+    background-color: transparent;
+    border: none;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .page-item.active .page-link {
+    background-color: red;
+    color: #fff;
+    border-radius: 0.25rem;
+  }
+
+  ul.pagination {
+    list-style: none;
+    margin: 50;
+    padding: 50;
+  }
         
     </style>
 </head>
@@ -859,6 +893,28 @@
         </a>
         <% }); %>
     </div>
+    <div id="pagination-container">
+      <nav>
+        <ul class="pagination">
+          <% if (currentPage > 1) { %>
+            <li class="page-item"><a class="page-link" href="/?page=<%= currentPage - 1 %>">Anterior</a></li>
+          <% } %>
+          <% for (let i = 1; i <= totalPages; i++) { %>
+            <% if (i === currentPage) { %>
+              <li class="page-item active"><a class="page-link" href="#"><%= i %></a></li>
+            <% } else { %>
+              <li class="page-item"><a class="page-link" href="/?page=<%= i %>"><%= i %></a></li>
+            <% } %>
+          <% } %>
+          <% if (currentPage < totalPages) { %>
+            <li class="page-item"><a class="page-link" href="/?page=<%= currentPage + 1 %>">Siguiente</a></li>
+          <% } %>
+        </ul>
+      </nav>
+    </div>
+
+
+
 
     <footer style="background-color: #4B4F55; display:flex; flex-direction: row; justify-content: space-around; align-items: center; color: white; font-family: Montserrat; padding: 25px;">
       <div class="logo">
@@ -908,6 +964,9 @@
         </div>
         
       </div>
+
+
+      
     
 
     </footer>
