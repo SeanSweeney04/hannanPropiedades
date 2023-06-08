@@ -139,7 +139,7 @@ const port = process.env.PORT || 3000;
 
 app.set('view engine', 'ejs');
 
-const API_TOKEN = 'a891875b348b4c68b615e8cb56abff72';
+const API_TOKEN = 'YOUR_API_TOKEN';
 const API_URL = 'https://witei.com/api/v1/houses/';
 const PAGE_SIZE = 10;
 
